@@ -20,7 +20,7 @@ namespace AlerterSpace {
             alertInCelcius(87.5f);
             var status1 = networkAlertStub(45);
             var status2 = networkAlertStub(85);
-            Debug.Assert(alertFailureCount == 2);
+            Debug.Assert(alertFailureCount == 3);
             Debug.Assert(status1 == 200);
             Debug.Assert(status2 == 500);
             Console.WriteLine("{0} alerts failed.", alertFailureCount);
@@ -34,7 +34,7 @@ namespace AlerterSpace {
         /// <returns></returns>
         static int networkAlertStub(float celcius) {
             Console.WriteLine("ALERT: Temperature is {0} celcius", celcius);
-            if (celcius < 41 && celcius < 65)
+            if (celcius > 41 && celcius < 65)
             {
                 return 200;
             }
